@@ -57,7 +57,7 @@ export const theme = {
       "bg-gradient-to-br from-teal-400 to-blue-500 dark:from-teal-500 dark:to-blue-600",
   },
   components: {
-    card: "rounded-lg p-6 md:p-8 shadow-lg border border-gray-200 hover:border-gray-300 dark:border-gray-700 dark:hover:border-gray-600 transition-colors duration-200",
+    card: "rounded-lg p-6 md:p-8 shadow-lg transition-colors duration-200",
     button:
       "px-6 py-3 rounded-lg bg-gray-900 text-white hover:bg-gray-800 dark:bg-white/10 dark:hover:bg-white/20 transition-colors duration-200",
     nav: "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors duration-200",
