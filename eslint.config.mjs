@@ -94,4 +94,12 @@ export default [
       },
     },
   },
+  {
+    // TypeScript already checks for undefined identifiers; ESLint's `no-undef`
+    // produces false-positives for standard runtime globals in TS files.
+    files: ["**/*.{ts,tsx}"],
+    rules: {
+      "no-undef": "off",
+    },
+  },
 ];
