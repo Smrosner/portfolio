@@ -10,13 +10,6 @@ import ProjectCard from "@/components/ProjectCard";
 import Resume from "@/components/Resume";
 import { theme } from "@/styles/theme";
 
-const impactStats = [
-  { label: "Features shipped", value: "50+" },
-  { label: "Latency reduction", value: "55%" },
-  { label: "Test coverage", value: "98%" },
-  { label: "Payment portal coverage", value: "87%" },
-];
-
 const strengths = [
   {
     title: "Ambiguity to execution",
@@ -40,15 +33,18 @@ export default function Home(): JSX.Element {
 
   return (
     <main className={`min-h-screen ${theme.gradients.primary}`}>
-      <section className="mx-auto max-w-7xl px-6 pb-16 pt-32 lg:px-8 md:pt-40">
+      <section
+        className="mx-auto max-w-7xl px-6 pb-12 pt-18
+       lg:px-8 md:pt-40"
+      >
         <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
             <p className="mb-5 text-sm font-semibold uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">
               Senior Full-Stack Software Engineer
             </p>
             <h1 className={theme.typography.h1}>
-              Shay Rosner builds reliable web products across frontend,
-              backend, and product ambiguity.
+              Shay Rosner builds reliable web products across frontend, backend,
+              and product ambiguity.
             </h1>
             <p className={`${theme.typography.body} max-w-3xl`}>
               I specialize in React, Next.js, TypeScript, API design,
@@ -69,12 +65,6 @@ export default function Home(): JSX.Element {
               >
                 View Resume
               </Link>
-              <a
-                href="mailto:shaymrosner@gmail.com"
-                className={`${theme.components.button} ${theme.effects.hover}`}
-              >
-                Contact
-              </a>
             </div>
           </div>
 
@@ -82,7 +72,10 @@ export default function Home(): JSX.Element {
             className={`${theme.components.card} ${theme.gradients.card} grid gap-5`}
           >
             {strengths.map((item) => (
-              <div key={item.title} className="border-b border-zinc-200 pb-5 last:border-0 last:pb-0 dark:border-zinc-800">
+              <div
+                key={item.title}
+                className="border-b border-zinc-200 pb-5 last:border-0 last:pb-0 dark:border-zinc-800"
+              >
                 <h2 className="mb-2 text-lg font-semibold text-zinc-950 dark:text-zinc-50">
                   {item.title}
                 </h2>
@@ -93,22 +86,11 @@ export default function Home(): JSX.Element {
         </div>
       </section>
 
-      <section className="border-y border-zinc-200 bg-white/70 dark:border-zinc-800 dark:bg-zinc-950/55">
-        <div className="mx-auto grid max-w-7xl gap-5 px-6 py-8 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
-          {impactStats.map((stat) => (
-            <div key={stat.label}>
-              <p className="text-3xl font-semibold text-zinc-950 dark:text-zinc-50">
-                {stat.value}
-              </p>
-              <p className={`${theme.colors.text.secondary} mt-1`}>
-                {stat.label}
-              </p>
-            </div>
-          ))}
-        </div>
+      <section className="mx-auto max-w-7xl px-6 lg:px-8" id="contact">
+        <Contact />
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+      <section className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
         <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">
@@ -127,7 +109,7 @@ export default function Home(): JSX.Element {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+      <section className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
         <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">
@@ -142,12 +124,8 @@ export default function Home(): JSX.Element {
         <BlogPostsSection posts={featuredBlogPosts.slice(0, 3)} />
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8" id="resume">
+      <section className="mx-auto max-w-7xl px-6 py-14 lg:px-8" id="resume">
         <Resume compact />
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8" id="contact">
-        <Contact />
       </section>
     </main>
   );
