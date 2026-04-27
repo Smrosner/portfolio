@@ -8,7 +8,7 @@ import { theme } from "@/styles/theme";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://shayrosner.dev"),
+  metadataBase: new URL("https://shayrosner.com"),
   title: {
     default: "Shay Rosner | Senior Full-Stack Software Engineer",
     template: "%s | Shay Rosner",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: "Shay Rosner | Senior Full-Stack Software Engineer",
     description:
       "Portfolio, project case studies, resume, and technical writing from Shay Rosner.",
-    url: "https://shayrosner.dev",
+    url: "https://shayrosner.com",
     siteName: "Shay Rosner Portfolio",
     type: "website",
   },

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://shayrosner.dev/sitemap.xml
+Sitemap: https://shayrosner.com/sitemap.xml
