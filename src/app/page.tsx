@@ -1,101 +1,154 @@
-"use client";
-import { MouseEvent, useState, type JSX } from "react";
+import Link from "next/link";
+import { type JSX } from "react";
 
-import About from "@/components/About";
+import { getFeaturedProjects } from "../../data/projectsData";
+
+import { featuredBlogPosts } from "@/app/blog/content";
+import BlogPostsSection from "@/components/BlogPostsSection";
 import Contact from "@/components/Contact";
+import ProjectCard from "@/components/ProjectCard";
 import Resume from "@/components/Resume";
-import { theme as themeStyles } from "@/styles/theme";
+import { theme } from "@/styles/theme";
+
+const impactStats = [
+  { label: "Features shipped", value: "50+" },
+  { label: "Latency reduction", value: "55%" },
+  { label: "Test coverage", value: "98%" },
+  { label: "Payment portal coverage", value: "87%" },
+];
+
+const strengths = [
+  {
+    title: "Ambiguity to execution",
+    detail:
+      "I turn open-ended product and system problems into scoped plans, clear tradeoffs, and shipped software.",
+  },
+  {
+    title: "Performance and reliability",
+    detail:
+      "I improve load paths, test confidence, data flow correctness, and operational visibility where user trust matters.",
+  },
+  {
+    title: "Secure full-stack delivery",
+    detail:
+      "I build across React, Next.js, TypeScript, Node.js, APIs, auth, payments, and sensitive data workflows.",
+  },
+];
 
 export default function Home(): JSX.Element {
-  const [activeSection, setActiveSection] = useState("about");
-
-  const handleNavClick =
-    (section: string) =>
-    (e: MouseEvent): void => {
-      e.preventDefault();
-      setActiveSection(section);
-    };
+  const featuredProjects = getFeaturedProjects();
 
   return (
-    <div className={`min-h-screen ${themeStyles.gradients.primary}`}>
-      <main className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="max-w-4xl py-32">
-          <section className="mb-20">
-            <h1
-              className={`text-6xl font-bold tracking-tight mb-8 ${themeStyles.colors.text.primary}`}
-            >
-              I&apos;M SHAY ROSNER
-            </h1>
-            <p
-              className={`text-xl leading-relaxed max-w-3xl ${themeStyles.colors.text.secondary}`}
-            >
-              Your friendly neighborhood frontend developer, UX architect, and
-              JavaScript engineer. I spend my days (and often nights) painting
-              the Internet canvas with{" "}
-              <a
-                href="#projects"
-                onClick={handleNavClick("projects")}
-                className="text-blue-400 hover:text-blue-300 transition-colors"
-              >
-                projects
-              </a>{" "}
-              and lines of code, turning zeroes and ones into immersive,
-              interactive experiences.
+    <main className={`min-h-screen ${theme.gradients.primary}`}>
+      <section className="mx-auto max-w-7xl px-6 pb-16 pt-32 lg:px-8 md:pt-40">
+        <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div>
+            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">
+              Senior Full-Stack Software Engineer
             </p>
-          </section>
-
-          {activeSection === "about" && (
-            <section id="about" className="mb-20">
-              <About />
-            </section>
-          )}
-
-          {activeSection === "contact" && (
-            <section id="contact" className="mb-20">
-              <Contact />
-            </section>
-          )}
-
-          {activeSection === "resume" && (
-            <section id="resume" className="mb-20">
-              <Resume />
-            </section>
-          )}
-
-          <footer className="py-8">
-            <div
-              className={`${themeStyles.components.card} ${themeStyles.gradients.card}`}
-            >
-              <div className="flex gap-8">
-                <a
-                  href="https://twitter.com/yourusername"
-                  className={`${themeStyles.colors.text.secondary} hover:text-white transition-colors`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Twitter
-                </a>
-                <a
-                  href="https://linkedin.com/in/shayrosner"
-                  className={`${themeStyles.colors.text.secondary} hover:text-white transition-colors`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  LinkedIn
-                </a>
-                <a
-                  href="https://github.com/smrosner"
-                  className={`${themeStyles.colors.text.secondary} hover:text-white transition-colors`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub
-                </a>
-              </div>
+            <h1 className={theme.typography.h1}>
+              Shay Rosner builds reliable web products across frontend,
+              backend, and product ambiguity.
+            </h1>
+            <p className={`${theme.typography.body} max-w-3xl`}>
+              I specialize in React, Next.js, TypeScript, API design,
+              performance, and security-sensitive systems. My best work happens
+              where teams need someone who can clarify the problem, own the
+              implementation, and explain the tradeoffs clearly.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href="/projects"
+                className={`${theme.components.button} ${theme.effects.hover}`}
+              >
+                View Projects
+              </Link>
+              <Link
+                href="/resume"
+                className={`${theme.components.button} ${theme.effects.hover} ${theme.colors.accent.blue}`}
+              >
+                View Resume
+              </Link>
+              <a
+                href="mailto:shaymrosner@gmail.com"
+                className={`${theme.components.button} ${theme.effects.hover}`}
+              >
+                Contact
+              </a>
             </div>
-          </footer>
+          </div>
+
+          <div
+            className={`${theme.components.card} ${theme.gradients.card} grid gap-5`}
+          >
+            {strengths.map((item) => (
+              <div key={item.title} className="border-b border-zinc-200 pb-5 last:border-0 last:pb-0 dark:border-zinc-800">
+                <h2 className="mb-2 text-lg font-semibold text-zinc-950 dark:text-zinc-50">
+                  {item.title}
+                </h2>
+                <p className={theme.colors.text.secondary}>{item.detail}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="border-y border-zinc-200 bg-white/70 dark:border-zinc-800 dark:bg-zinc-950/55">
+        <div className="mx-auto grid max-w-7xl gap-5 px-6 py-8 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
+          {impactStats.map((stat) => (
+            <div key={stat.label}>
+              <p className="text-3xl font-semibold text-zinc-950 dark:text-zinc-50">
+                {stat.value}
+              </p>
+              <p className={`${theme.colors.text.secondary} mt-1`}>
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">
+              Selected Work
+            </p>
+            <h2 className={theme.typography.h2}>Featured Projects</h2>
+          </div>
+          <Link href="/projects" className={theme.typography.link}>
+            See all projects
+          </Link>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {featuredProjects.map((project) => (
+            <ProjectCard key={project.slug} project={project} />
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">
+              Technical Writing
+            </p>
+            <h2 className={theme.typography.h2}>Recent Articles</h2>
+          </div>
+          <Link href="/blog" className={theme.typography.link}>
+            Visit the blog
+          </Link>
+        </div>
+        <BlogPostsSection posts={featuredBlogPosts.slice(0, 3)} />
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8" id="resume">
+        <Resume compact />
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8" id="contact">
+        <Contact />
+      </section>
+    </main>
   );
 }

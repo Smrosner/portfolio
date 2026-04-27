@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">ByteBot systems preview</title>
+  <desc id="desc">Performance charts, test coverage, and money-safe backend paths.</desc>
+  <rect width="1200" height="760" fill="#172554"/>
+  <rect x="95" y="90" width="1010" height="580" rx="30" fill="#f8fafc"/>
+  <rect x="150" y="150" width="300" height="180" rx="20" fill="#dbeafe"/>
+  <rect x="505" y="150" width="300" height="180" rx="20" fill="#dcfce7"/>
+  <rect x="860" y="150" width="190" height="180" rx="20" fill="#fef3c7"/>
+  <path d="M190 285c55-80 105-15 155-95 22-34 45-48 74-50" fill="none" stroke="#2563eb" stroke-width="18" stroke-linecap="round"/>
+  <path d="M555 270l45-55 54 30 75-82" fill="none" stroke="#16a34a" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="955" cy="240" r="56" fill="#f59e0b"/>
+  <path d="M955 205v70M930 225h45c18 0 30 10 30 25s-12 25-30 25h-45" fill="none" stroke="#78350f" stroke-width="14" stroke-linecap="round"/>
+  <rect x="150" y="400" width="900" height="160" rx="20" fill="#eff6ff"/>
+  <rect x="205" y="455" width="760" height="22" rx="11" fill="#0f172a"/>
+  <rect x="205" y="510" width="620" height="18" rx="9" fill="#64748b"/>
+</svg>

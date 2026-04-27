@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Chelle.ai chat platform preview</title>
+  <desc id="desc">AI chat bubbles with secure session controls.</desc>
+  <rect width="1200" height="760" fill="#312e81"/>
+  <rect x="120" y="90" width="960" height="580" rx="32" fill="#faf5ff"/>
+  <rect x="190" y="160" width="420" height="86" rx="28" fill="#ddd6fe"/>
+  <rect x="590" y="285" width="420" height="86" rx="28" fill="#c4b5fd"/>
+  <rect x="190" y="410" width="520" height="86" rx="28" fill="#e9d5ff"/>
+  <circle cx="260" cy="560" r="45" fill="#7c3aed"/>
+  <circle cx="382" cy="560" r="45" fill="#a855f7"/>
+  <circle cx="504" cy="560" r="45" fill="#c084fc"/>
+  <rect x="745" y="520" width="210" height="78" rx="18" fill="#111827"/>
+  <path d="M795 560h110" stroke="#f8fafc" stroke-width="16" stroke-linecap="round"/>
+</svg>

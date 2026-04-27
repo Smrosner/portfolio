@@ -1,44 +1,50 @@
-import { JSX } from "react";
+import { type JSX } from "react";
 
 import { theme } from "@/styles/theme";
 
-export default function About(): JSX.Element {
+interface AboutProps {
+  showHeading?: boolean;
+}
+
+export default function About({ showHeading = true }: AboutProps): JSX.Element {
   return (
-    <section className={theme.layout.section.lg}>
-      <h2 className={theme.typography.h2}>About Me</h2>
-      <div
-        className={`${theme.components.card} ${theme.gradients.card} ${theme.layout.content}`}
-      >
-        <div className="space-y-6">
-          <p className={theme.typography.body}>
-            I'm a passionate frontend developer with a keen eye for design and
-            user experience. I specialize in crafting beautiful, functional web
-            applications that make a real difference in people's lives. With
-            expertise in React, TypeScript, and modern web technologies, I
-            transform complex problems into elegant solutions.
+    <section>
+      {showHeading && <h2 className={theme.typography.h2}>About</h2>}
+      <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+        <div className={`${theme.components.card} ${theme.gradients.card}`}>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">
+            Engineering Profile
           </p>
+          <h3 className={`${theme.typography.h3} !mb-4`}>
+            Full-stack engineer for performance-critical and
+            security-sensitive products.
+          </h3>
           <p className={theme.typography.body}>
-            When I'm not immersed in code, you'll find me exploring emerging
-            technologies, contributing to open-source projects, or seeking
-            inspiration in the great outdoors. I believe in continuous learning
-            and pushing the boundaries of what's possible on the web.
+            I work across React, Next.js, TypeScript, Node.js, APIs, data
+            pipelines, auth, payments, and increasingly C#/.NET backend
+            systems.
           </p>
         </div>
-        <div className={`${theme.layout.flexCenter} gap-4 pt-8`}>
-          <a
-            href="https://github.com/smrosner"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`${theme.components.button} ${theme.effects.hover}`}
-          >
-            View GitHub
-          </a>
-          <a
-            href="#contact"
-            className={`${theme.components.button} ${theme.effects.hover} ${theme.colors.accent.blue}`}
-          >
-            Get in Touch
-          </a>
+
+        <div className="space-y-6">
+          <p className={theme.typography.body}>
+            I&apos;m Shay Rosner, a senior full-stack software engineer known
+            for improving reliability, reducing latency, and explaining
+            tradeoffs clearly in ambiguous environments.
+          </p>
+          <p className={theme.typography.body}>
+            My work has spanned education platforms, AI chat products, payment
+            portals, link-preview tooling, and money-safe backend flows. I like
+            systems where the details matter: schema consistency, client/server
+            boundaries, accessibility, testing, security posture, and production
+            diagnosis.
+          </p>
+          <p className={theme.typography.body}>
+            I bring a product-minded engineering style: clarify the user
+            outcome, identify the technical risk, make the smallest useful
+            plan, and ship with enough verification that the next person can
+            trust the change.
+          </p>
         </div>
       </div>
     </section>

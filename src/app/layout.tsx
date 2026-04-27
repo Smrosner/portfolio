@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import Script from "next/script";
 import { JSX, ReactNode } from "react";
 
@@ -8,14 +7,26 @@ import { ThemeProvider } from "@/context/ThemeContext";
 import { theme } from "@/styles/theme";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
-
 export const metadata: Metadata = {
-  title: "Your Name - Portfolio",
-  description: "Personal portfolio and resume",
+  metadataBase: new URL("https://shayrosner.dev"),
+  title: {
+    default: "Shay Rosner | Senior Full-Stack Software Engineer",
+    template: "%s | Shay Rosner",
+  },
+  description:
+    "Senior full-stack software engineer specializing in React, Next.js, TypeScript, API design, performance, security-sensitive systems, and reliable product delivery.",
+  openGraph: {
+    title: "Shay Rosner | Senior Full-Stack Software Engineer",
+    description:
+      "Portfolio, project case studies, resume, and technical writing from Shay Rosner.",
+    url: "https://shayrosner.dev",
+    siteName: "Shay Rosner Portfolio",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -24,12 +35,12 @@ export default function RootLayout({
   children: ReactNode;
 }>): JSX.Element {
   return (
-    <html lang="en" className={`${inter.variable} dark`}>
+    <html lang="en" className="dark">
       <head>
         <Script id="theme-script" strategy="beforeInteractive">
           {`
             try {
-              if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+              if (localStorage.theme === 'light') {
                 document.documentElement.classList.remove('dark')
               } else {
                 document.documentElement.classList.add('dark')
@@ -39,12 +50,12 @@ export default function RootLayout({
         </Script>
       </head>
       <body
-        className={`${inter.className} ${theme.colors.background} ${theme.colors.text.primary}`}
+        className={`${theme.colors.background} ${theme.colors.text.primary} antialiased`}
       >
         <ThemeProvider>
           <div className="min-h-screen">
             <Navbar />
-            <div className="mx-auto px-4 sm:px-6 lg:px-8">{children}</div>
+            {children}
           </div>
         </ThemeProvider>
       </body>

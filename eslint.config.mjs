@@ -8,8 +8,18 @@ import importPlugin from "eslint-plugin-import";
 
 export default [
   {
+    ignores: [
+      "**/node_modules/**",
+      "**/.next/**",
+      "**/out/**",
+      "**/dist/**",
+      "postcss.config.js",
+      "tailwind.config.js",
+    ],
+  },
+  {
     files: ["**/*.{js,jsx,ts,tsx}"],
-    ignores: ["**/node_modules/**", "**/.next/**", "**/dist/**", "**/*.md"],
+    ignores: ["**/*.md"],
     plugins: {
       "@typescript-eslint": tseslint.default,
       "@next/next": nextPlugin,
