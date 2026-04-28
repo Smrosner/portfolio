@@ -34,8 +34,8 @@ export default function Home(): JSX.Element {
   return (
     <main className={`min-h-screen ${theme.gradients.primary}`}>
       <section
-        className="mx-auto max-w-7xl px-6 pb-12 pt-18
-       lg:px-8 md:pt-40"
+        className="mx-auto max-w-7xl px-6 pb-8 pt-28
+       lg:px-8"
       >
         <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>

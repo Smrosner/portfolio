@@ -74,9 +74,9 @@ export default function Contact(): JSX.Element {
             rel={
               link.href.startsWith("http") ? "noopener noreferrer" : undefined
             }
-            className="contact-pill"
+            className={`${theme.components.pill} ${theme.effects.hover}`}
           >
-            <span className="contact-pill-icon">{link.icon}</span>
+            <span className={theme.components.pillIcon}>{link.icon}</span>
             <span>{link.label}</span>
           </a>
         ))}

@@ -58,6 +58,9 @@ export const theme = {
     card: "rounded-lg p-7 md:p-10 shadow-md dark:shadow-[0_18px_45px_rgba(0,0,0,0.42)] ring-1 ring-zinc-200/70 dark:ring-zinc-800/70 transition-all duration-250",
     button:
       "px-6 py-3 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white/80 dark:bg-zinc-900/70 text-zinc-900 dark:text-zinc-100 hover:border-cyan-400/50 hover:text-cyan-700 dark:hover:text-cyan-200 hover:bg-cyan-500/5 dark:hover:bg-cyan-500/10 transition-colors duration-200",
+    pill: "flex items-center gap-3 px-5 py-2 rounded-full border border-zinc-300 bg-white/80 text-zinc-900 dark:border-zinc-700 dark:bg-zinc-900/70 dark:text-zinc-100 transition-colors duration-200 hover:border-cyan-400/50 hover:text-cyan-700 dark:hover:text-cyan-200 hover:bg-cyan-500/5 dark:hover:bg-cyan-500/10 text-md font-base group",
+    pillIcon:
+      "flex items-center justify-center text-zinc-500 dark:text-zinc-400 transition-colors group-hover:text-cyan-700 dark:group-hover:text-cyan-200",
     nav: "text-zinc-700 hover:text-cyan-700 dark:text-zinc-300 dark:hover:text-cyan-300 transition-colors duration-200",
     input:
       "rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 px-4 py-2 focus:ring-2 focus:ring-cyan-400 focus:border-transparent",
