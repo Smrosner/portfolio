@@ -13,7 +13,6 @@ const navItems = [
   { href: "/resume", label: "Resume", match: "/resume" },
   { href: "/blog", label: "Blog", match: "/blog" },
   { href: "/about", label: "About", match: "/about" },
-  { href: "/#contact", label: "Contact", match: "#contact" },
 ];
 
 function isActive(pathname: string, match: string): boolean {
@@ -88,7 +87,9 @@ export default function Navbar(): JSX.Element {
             className="flex h-10 w-10 items-center justify-center rounded-md border border-zinc-300 bg-white/80 text-zinc-800 dark:border-zinc-700 dark:bg-zinc-900/70 dark:text-zinc-100"
             aria-expanded={isOpen}
             aria-controls="mobile-navigation"
-            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-label={
+              isOpen ? "Close navigation menu" : "Open navigation menu"
+            }
           >
             <span aria-hidden="true" className="grid gap-1">
               <span className="block h-0.5 w-5 rounded-full bg-current" />
