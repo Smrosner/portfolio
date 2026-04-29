@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { type JSX } from "react";
 
 import { DownloadIcon } from "@/components/shared/Icons";
+import Button from "@/components/ui/Button";
 import { theme } from "@/styles/theme";
 
 const experiences = [
@@ -85,18 +85,18 @@ export default function Resume({ compact = false }: ResumeProps): JSX.Element {
           </h2>
         </div>
         <div className="flex flex-wrap gap-3">
-          <a
+          <Button
             href="/ShayRosnerResume.pdf"
             download="ShayRosnerResume.pdf"
-            className={`${theme.components.pageLink} flex items-center gap-2`}
+            variant="ghost"
+            leftIcon={<DownloadIcon size={18} />}
           >
-            <DownloadIcon size={18} />
             Download PDF
-          </a>
+          </Button>
           {compact && (
-            <Link href="/resume" className={theme.components.pageLink}>
+            <Button href="/resume" variant="ghost">
               Full resume
-            </Link>
+            </Button>
           )}
         </div>
       </div>

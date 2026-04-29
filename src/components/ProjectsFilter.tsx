@@ -5,7 +5,7 @@ import { useMemo, useState, type JSX } from "react";
 import { projectCategories, type Project, type ProjectCategory } from "../../data/projectsData";
 
 import ProjectCard from "@/components/ProjectCard";
-import { theme } from "@/styles/theme";
+import Button from "@/components/ui/Button";
 
 type ActiveCategory = "all" | ProjectCategory;
 
@@ -34,18 +34,16 @@ export default function ProjectsFilter({
           const isActive = activeCategory === category.id;
 
           return (
-            <button
+            <Button
               key={category.id}
-              type="button"
               onClick={() => setActiveCategory(category.id)}
-              className={`rounded-md px-4 py-2 text-sm font-medium transition-colors ${
-                isActive
-                  ? "bg-cyan-600 text-white ring-1 ring-cyan-500 dark:bg-cyan-400 dark:text-zinc-950"
-                  : `${theme.colors.text.secondary} bg-white/80 ring-1 ring-zinc-200 hover:text-cyan-700 dark:bg-zinc-950/70 dark:ring-zinc-800 dark:hover:text-cyan-200`
-              }`}
+              variant="ghost"
+              isActive={isActive}
+              activeClassName="bg-cyan-600 text-white ring-1 ring-cyan-500 dark:bg-cyan-400 dark:text-zinc-950"
+              className="px-4 py-2"
             >
               {category.label}
-            </button>
+            </Button>
           );
         })}
       </div>

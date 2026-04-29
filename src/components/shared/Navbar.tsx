@@ -6,6 +6,7 @@ import { useState, type JSX } from "react";
 
 import { SunIcon, MoonIcon } from "./Icons";
 
+import Button from "@/components/ui/Button";
 import { useTheme } from "@/context/ThemeContext";
 import { theme as themeStyles } from "@/styles/theme";
 
@@ -53,42 +54,35 @@ export default function Navbar(): JSX.Element {
             const active = isActive(pathname, item.match);
 
             return (
-              <Link
+              <Button
                 key={item.href}
                 href={item.href}
-                className={
-                  active
-                    ? "rounded-md px-3 py-2 text-sm font-medium transition-colors bg-cyan-100 text-cyan-900 ring-1 ring-cyan-200 dark:bg-cyan-400/15 dark:text-cyan-100 dark:ring-cyan-400/30"
-                    : themeStyles.components.pageLink
-                }
+                variant="nav"
+                isActive={active}
               >
                 {item.label}
-              </Link>
+              </Button>
             );
           })}
-          <button
-            type="button"
+          <Button
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            className={`ml-2 flex h-10 w-10 items-center justify-center rounded-md bg-transparent focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-500/80 focus-visible:outline-offset-2 transition duration-300 ${
-              themeStyles.components.pageLink
-            } ${mounted ? "opacity-100" : "opacity-0"}`}
+            variant="ghost"
+            className={`ml-2 h-10 w-10 !p-0 ${mounted ? "opacity-100" : "opacity-0"}`}
           >
             {!mounted ? null : theme === "dark" ? <SunIcon /> : <MoonIcon />}
-          </button>
+          </Button>
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
-          <button
-            type="button"
+          <Button
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            className={`flex h-10 w-10 items-center justify-center rounded-md bg-transparent focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-500/80 focus-visible:outline-offset-2 transition duration-300 ${
-              themeStyles.components.pageLink
-            } ${mounted ? "opacity-100" : "opacity-0"}`}
+            variant="ghost"
+            className={`h-10 w-10 !p-0 ${mounted ? "opacity-100" : "opacity-0"}`}
           >
             {!mounted ? null : theme === "dark" ? <SunIcon /> : <MoonIcon />}
-          </button>
+          </Button>
           <button
             type="button"
             onClick={() => setIsOpen((open) => !open)}
@@ -118,18 +112,16 @@ export default function Navbar(): JSX.Element {
               const active = isActive(pathname, item.match);
 
               return (
-                <Link
+                <Button
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className={
-                    active
-                      ? "rounded-md px-3 py-2 text-sm font-medium transition-colors bg-cyan-100 text-cyan-900 dark:bg-cyan-400/15 dark:text-cyan-100"
-                      : themeStyles.components.pageLink
-                  }
+                  variant="nav"
+                  isActive={active}
+                  className="justify-start"
                 >
                   {item.label}
-                </Link>
+                </Button>
               );
             })}
           </div>

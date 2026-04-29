@@ -3,6 +3,7 @@
 import { useState, type JSX } from "react";
 
 import { MailIcon, GitHubIcon, LinkedInIcon } from "@/components/shared/Icons";
+import Button from "@/components/ui/Button";
 import { theme } from "@/styles/theme";
 
 const contactLinks = [
@@ -28,7 +29,7 @@ export default function Contact(): JSX.Element {
   const [copied, setCopied] = useState(false);
 
   const handleEmailClick = async (
-    e: React.MouseEvent<HTMLAnchorElement>,
+    e: React.MouseEvent<HTMLElement>,
     email: string,
   ): Promise<void> => {
     e.preventDefault();
@@ -68,28 +69,20 @@ export default function Contact(): JSX.Element {
 
       <div className="flex flex-wrap gap-3">
         {contactLinks.map((link) => (
-          <a
+          <Button
             key={link.href}
             href={link.href}
-            target={link.href.startsWith("http") ? "_blank" : undefined}
-            rel={
-              link.href.startsWith("http") ? "noopener noreferrer" : undefined
-            }
+            variant="pill"
+            isActive={link.label === "Email" && copied}
             onClick={
               link.email
-                ? (e): Promise<void> =>
+                ? (e: React.MouseEvent<HTMLElement>): Promise<void> =>
                     handleEmailClick(e, link.email as string)
                 : undefined
             }
-            className={`${theme.components.pill} ${
-              theme.effects.hover
-            } relative overflow-hidden transition-all duration-300 ${
-              link.label === "Email" && copied
-                ? "bg-cyan-500/10 border-cyan-500/50 text-cyan-700 dark:text-cyan-300"
-                : ""
-            }`}
+            leftIcon={link.icon}
+            className={`${theme.effects.hover} relative overflow-hidden transition-all duration-300`}
           >
-            <span className={theme.components.pillIcon}>{link.icon}</span>
             <span>
               {link.label === "Email" && copied ? "Copied!" : link.label}
             </span>
@@ -98,7 +91,7 @@ export default function Contact(): JSX.Element {
             {link.label === "Email" && copied && (
               <div className="absolute bottom-0 left-0 h-0.5 bg-cyan-500 animate-shrink" />
             )}
-          </a>
+          </Button>
         ))}
       </div>
     </section>

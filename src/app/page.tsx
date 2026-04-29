@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { type JSX } from "react";
 
 import { getFeaturedProjects } from "../../data/projectsData";
@@ -8,6 +7,7 @@ import BlogPostsSection from "@/components/BlogPostsSection";
 import Contact from "@/components/Contact";
 import ProjectCard from "@/components/ProjectCard";
 import Resume from "@/components/Resume";
+import Button from "@/components/ui/Button";
 import { theme } from "@/styles/theme";
 
 const strengths = [
@@ -53,18 +53,20 @@ export default function Home(): JSX.Element {
               implementation, and explain the tradeoffs clearly.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link
+              <Button
                 href="/projects"
-                className={`${theme.components.button} ${theme.effects.hover}`}
+                variant="primary"
+                className={theme.effects.hover}
               >
                 View Projects
-              </Link>
-              <Link
+              </Button>
+              <Button
                 href="/resume"
-                className={`${theme.components.button} ${theme.effects.hover} ${theme.colors.accent.blue}`}
+                variant="primary"
+                className={`${theme.effects.hover} ${theme.colors.accent.blue}`}
               >
                 View Resume
-              </Link>
+              </Button>
             </div>
           </div>
 
@@ -98,9 +100,9 @@ export default function Home(): JSX.Element {
             </p>
             <h2 className={theme.typography.h2}>Featured Projects</h2>
           </div>
-          <Link href="/projects" className={theme.components.pageLink}>
+          <Button href="/projects" variant="ghost">
             See all projects
-          </Link>
+          </Button>
         </div>
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {featuredProjects.map((project) => (
@@ -117,9 +119,9 @@ export default function Home(): JSX.Element {
             </p>
             <h2 className={theme.typography.h2}>Recent Articles</h2>
           </div>
-          <Link href="/blog" className={theme.components.pageLink}>
+          <Button href="/blog" variant="ghost">
             Visit the blog
-          </Link>
+          </Button>
         </div>
         <BlogPostsSection posts={featuredBlogPosts.slice(0, 3)} />
       </section>
