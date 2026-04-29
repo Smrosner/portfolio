@@ -64,6 +64,8 @@ export const theme = {
     nav: "text-zinc-700 hover:text-cyan-700 dark:text-zinc-300 dark:hover:text-cyan-300 transition-colors duration-200",
     input:
       "rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 px-4 py-2 focus:ring-2 focus:ring-cyan-400 focus:border-transparent",
+    pageLink:
+      "rounded-md px-3 py-2 transition-colors text-cyan-900 dark:text-cyan-200 hover:bg-cyan-100 hover:text-cyan-700 dark:hover:bg-zinc-900 dark:hover:text-cyan-200 font-medium text-md",
   },
   effects: {
     hover:

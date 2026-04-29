@@ -22,8 +22,8 @@ export default function ProjectsPage(): JSX.Element {
           </p>
           <h1 className={theme.typography.h1}>Project Case Studies</h1>
           <p className={`${theme.typography.body} max-w-3xl`}>
-            Resume-backed examples of how I turn ambiguous product and system
-            problems into reliable shipped software.
+            Examples of how I turn ambiguous product and system problems into
+            reliable shipped software.
           </p>
         </div>
 

@@ -91,14 +91,14 @@ export default function Home(): JSX.Element {
       </section>
 
       <section className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
-        <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">
               Selected Work
             </p>
             <h2 className={theme.typography.h2}>Featured Projects</h2>
           </div>
-          <Link href="/projects" className={theme.typography.link}>
+          <Link href="/projects" className={theme.components.pageLink}>
             See all projects
           </Link>
         </div>
@@ -110,14 +110,14 @@ export default function Home(): JSX.Element {
       </section>
 
       <section className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
-        <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">
               Technical Writing
             </p>
             <h2 className={theme.typography.h2}>Recent Articles</h2>
           </div>
-          <Link href="/blog" className={theme.typography.link}>
+          <Link href="/blog" className={theme.components.pageLink}>
             Visit the blog
           </Link>
         </div>

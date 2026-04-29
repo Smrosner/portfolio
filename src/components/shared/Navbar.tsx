@@ -56,11 +56,11 @@ export default function Navbar(): JSX.Element {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                className={
                   active
-                    ? "bg-cyan-100 text-cyan-900 ring-1 ring-cyan-200 dark:bg-cyan-400/15 dark:text-cyan-100 dark:ring-cyan-400/30"
-                    : `${themeStyles.colors.text.secondary} hover:bg-zinc-100 hover:text-cyan-800 dark:hover:bg-zinc-900 dark:hover:text-cyan-200`
-                }`}
+                    ? "rounded-md px-3 py-2 text-sm font-medium transition-colors bg-cyan-100 text-cyan-900 ring-1 ring-cyan-200 dark:bg-cyan-400/15 dark:text-cyan-100 dark:ring-cyan-400/30"
+                    : themeStyles.components.pageLink
+                }
               >
                 {item.label}
               </Link>
@@ -71,10 +71,8 @@ export default function Navbar(): JSX.Element {
             onClick={toggleTheme}
             aria-label="Toggle theme"
             className={`ml-2 flex h-10 w-10 items-center justify-center rounded-md bg-transparent focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-500/80 focus-visible:outline-offset-2 transition duration-300 ${
-              themeStyles.colors.text.secondary
-            } hover:bg-zinc-100 hover:text-cyan-800 dark:hover:bg-zinc-900 dark:hover:text-cyan-200 ${
-              mounted ? "opacity-100" : "opacity-0"
-            }`}
+              themeStyles.components.pageLink
+            } ${mounted ? "opacity-100" : "opacity-0"}`}
           >
             {!mounted ? null : theme === "dark" ? <SunIcon /> : <MoonIcon />}
           </button>
@@ -86,10 +84,8 @@ export default function Navbar(): JSX.Element {
             onClick={toggleTheme}
             aria-label="Toggle theme"
             className={`flex h-10 w-10 items-center justify-center rounded-md bg-transparent focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-500/80 focus-visible:outline-offset-2 transition duration-300 ${
-              themeStyles.colors.text.secondary
-            } hover:bg-zinc-100 hover:text-cyan-800 dark:hover:bg-zinc-900 dark:hover:text-cyan-200 ${
-              mounted ? "opacity-100" : "opacity-0"
-            }`}
+              themeStyles.components.pageLink
+            } ${mounted ? "opacity-100" : "opacity-0"}`}
           >
             {!mounted ? null : theme === "dark" ? <SunIcon /> : <MoonIcon />}
           </button>
@@ -126,11 +122,11 @@ export default function Navbar(): JSX.Element {
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                  className={
                     active
-                      ? "bg-cyan-100 text-cyan-900 dark:bg-cyan-400/15 dark:text-cyan-100"
-                      : `${themeStyles.colors.text.secondary} hover:bg-zinc-100 dark:hover:bg-zinc-900`
-                  }`}
+                      ? "rounded-md px-3 py-2 text-sm font-medium transition-colors bg-cyan-100 text-cyan-900 dark:bg-cyan-400/15 dark:text-cyan-100"
+                      : themeStyles.components.pageLink
+                  }
                 >
                   {item.label}
                 </Link>

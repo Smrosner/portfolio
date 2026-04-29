@@ -75,7 +75,7 @@ export default function Resume({ compact = false }: ResumeProps): JSX.Element {
 
   return (
     <section>
-      <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">
             Experience
@@ -88,13 +88,13 @@ export default function Resume({ compact = false }: ResumeProps): JSX.Element {
           <a
             href="/ShayRosnerResume.pdf"
             download="ShayRosnerResume.pdf"
-            className={`${theme.typography.link} flex items-center gap-2`}
+            className={`${theme.components.pageLink} flex items-center gap-2`}
           >
             <DownloadIcon size={18} />
             Download PDF
           </a>
           {compact && (
-            <Link href="/resume" className={theme.typography.link}>
+            <Link href="/resume" className={theme.components.pageLink}>
               Full resume
             </Link>
           )}
@@ -109,9 +109,7 @@ export default function Resume({ compact = false }: ResumeProps): JSX.Element {
           >
             <div className="mb-4 flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
               <div>
-                <h3 className={`${theme.typography.h3} !mb-1`}>
-                  {exp.title}
-                </h3>
+                <h3 className={`${theme.typography.h3} !mb-1`}>{exp.title}</h3>
                 <p className="font-medium text-cyan-700 dark:text-cyan-300">
                   {exp.company}
                 </p>
@@ -122,7 +120,10 @@ export default function Resume({ compact = false }: ResumeProps): JSX.Element {
             </div>
             <ul className="space-y-3">
               {exp.description.map((item) => (
-                <li key={item} className={`${theme.typography.body} flex gap-3`}>
+                <li
+                  key={item}
+                  className={`${theme.typography.body} flex gap-3`}
+                >
                   <span
                     aria-hidden="true"
                     className="mt-3 h-2 w-2 shrink-0 rounded-full bg-cyan-500"
