@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { type JSX } from "react";
 
+import { DownloadIcon } from "@/components/shared/Icons";
 import { theme } from "@/styles/theme";
 
 const experiences = [
@@ -87,8 +88,9 @@ export default function Resume({ compact = false }: ResumeProps): JSX.Element {
           <a
             href="/ShayRosnerResume.pdf"
             download="ShayRosnerResume.pdf"
-            className={theme.typography.link}
+            className={`${theme.typography.link} flex items-center gap-2`}
           >
+            <DownloadIcon size={18} />
             Download PDF
           </a>
           {compact && (

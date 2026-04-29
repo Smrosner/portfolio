@@ -4,6 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, type JSX } from "react";
 
+import { SunIcon, MoonIcon } from "./Icons";
+
 import { useTheme } from "@/context/ThemeContext";
 import { theme as themeStyles } from "@/styles/theme";
 
@@ -40,7 +42,7 @@ export default function Navbar(): JSX.Element {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
         <Link
           href="/"
-          className={`text-2xl font-bold ${themeStyles.colors.text.primary}`}
+          className={`rounded-md px-2 py-1 text-2xl font-bold transition ${themeStyles.colors.text.primary}`}
           onClick={() => setIsOpen(false)}
         >
           SR
@@ -68,11 +70,13 @@ export default function Navbar(): JSX.Element {
             type="button"
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            className={`ml-2 flex w-16 items-center justify-center rounded-md border border-zinc-300 bg-white/80 py-2 text-sm font-medium text-zinc-800 transition-all duration-300 dark:border-zinc-700 dark:bg-zinc-900/70 dark:text-zinc-100 dark:hover:bg-zinc-800 ${
+            className={`ml-2 flex h-10 w-10 items-center justify-center rounded-md bg-transparent focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-500/80 focus-visible:outline-offset-2 transition duration-300 ${
+              themeStyles.colors.text.secondary
+            } hover:bg-zinc-100 hover:text-cyan-800 dark:hover:bg-zinc-900 dark:hover:text-cyan-200 ${
               mounted ? "opacity-100" : "opacity-0"
-            } hover:bg-zinc-100`}
+            }`}
           >
-            {!mounted ? "" : theme === "dark" ? "Light" : "Dark"}
+            {!mounted ? null : theme === "dark" ? <SunIcon /> : <MoonIcon />}
           </button>
         </div>
 
@@ -81,11 +85,13 @@ export default function Navbar(): JSX.Element {
             type="button"
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            className={`flex w-16 items-center justify-center rounded-md border border-zinc-300 bg-white/80 py-2 text-sm font-medium text-zinc-800 transition-all duration-300 dark:border-zinc-700 dark:bg-zinc-900/70 dark:text-zinc-100 ${
+            className={`flex h-10 w-10 items-center justify-center rounded-md bg-transparent focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-500/80 focus-visible:outline-offset-2 transition duration-300 ${
+              themeStyles.colors.text.secondary
+            } hover:bg-zinc-100 hover:text-cyan-800 dark:hover:bg-zinc-900 dark:hover:text-cyan-200 ${
               mounted ? "opacity-100" : "opacity-0"
             }`}
           >
-            {!mounted ? "" : theme === "dark" ? "Light" : "Dark"}
+            {!mounted ? null : theme === "dark" ? <SunIcon /> : <MoonIcon />}
           </button>
           <button
             type="button"
