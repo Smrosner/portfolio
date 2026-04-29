@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { JSX, ReactNode } from "react";
 
 import Navbar from "@/components/shared/Navbar";
@@ -35,20 +34,8 @@ export default function RootLayout({
   children: ReactNode;
 }>): JSX.Element {
   return (
-    <html lang="en" className="dark">
-      <head>
-        <Script id="theme-script" strategy="beforeInteractive">
-          {`
-            try {
-              if (localStorage.theme === 'light') {
-                document.documentElement.classList.remove('dark')
-              } else {
-                document.documentElement.classList.add('dark')
-              }
-            } catch (_) {}
-          `}
-        </Script>
-      </head>
+    <html lang="en" suppressHydrationWarning>
+      <head />
       <body
         className={`${theme.colors.background} ${theme.colors.text.primary} antialiased`}
       >

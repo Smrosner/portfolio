@@ -29,7 +29,7 @@ function isActive(pathname: string, match: string): boolean {
 
 export default function Navbar(): JSX.Element {
   const pathname = usePathname();
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme, mounted } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -67,9 +67,12 @@ export default function Navbar(): JSX.Element {
           <button
             type="button"
             onClick={toggleTheme}
-            className="ml-2 rounded-md border border-zinc-300 bg-white/80 px-3 py-2 text-sm font-medium text-zinc-800 transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900/70 dark:text-zinc-100 dark:hover:bg-zinc-800"
+            aria-label="Toggle theme"
+            className={`ml-2 flex w-16 items-center justify-center rounded-md border border-zinc-300 bg-white/80 py-2 text-sm font-medium text-zinc-800 transition-all duration-300 dark:border-zinc-700 dark:bg-zinc-900/70 dark:text-zinc-100 dark:hover:bg-zinc-800 ${
+              mounted ? "opacity-100" : "opacity-0"
+            } hover:bg-zinc-100`}
           >
-            {theme === "dark" ? "Light" : "Dark"}
+            {!mounted ? "" : theme === "dark" ? "Light" : "Dark"}
           </button>
         </div>
 
@@ -77,9 +80,12 @@ export default function Navbar(): JSX.Element {
           <button
             type="button"
             onClick={toggleTheme}
-            className="rounded-md border border-zinc-300 bg-white/80 px-3 py-2 text-sm font-medium text-zinc-800 dark:border-zinc-700 dark:bg-zinc-900/70 dark:text-zinc-100"
+            aria-label="Toggle theme"
+            className={`flex w-16 items-center justify-center rounded-md border border-zinc-300 bg-white/80 py-2 text-sm font-medium text-zinc-800 transition-all duration-300 dark:border-zinc-700 dark:bg-zinc-900/70 dark:text-zinc-100 ${
+              mounted ? "opacity-100" : "opacity-0"
+            }`}
           >
-            {theme === "dark" ? "Light" : "Dark"}
+            {!mounted ? "" : theme === "dark" ? "Light" : "Dark"}
           </button>
           <button
             type="button"

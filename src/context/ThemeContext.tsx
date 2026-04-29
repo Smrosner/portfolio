@@ -1,6 +1,10 @@
 "use client";
 
 import {
+  ThemeProvider as NextThemesProvider,
+  useTheme as useNextTheme,
+} from "next-themes";
+import {
   createContext,
   useContext,
   useEffect,
@@ -9,35 +13,12 @@ import {
   type ReactNode,
 } from "react";
 
-// These are browser globals that TypeScript doesn't know about in this context
-declare const window: {
-  matchMedia: (query: string) => { matches: boolean };
-  localStorage: {
-    getItem: (key: string) => string | null;
-    setItem: (key: string, value: string) => void;
-  };
-};
-
-declare const document: {
-  documentElement: {
-    classList: {
-      toggle: (className: string, force?: boolean) => void;
-      add: (className: string) => void;
-      remove: (className: string) => void;
-    };
-  };
-};
-
-declare const localStorage: {
-  getItem: (key: string) => string | null;
-  setItem: (key: string, value: string) => void;
-};
-
 type Theme = "light" | "dark";
 
 interface ThemeContextType {
   theme: Theme;
   toggleTheme: () => void;
+  mounted: boolean;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -47,41 +28,36 @@ export function ThemeProvider({
 }: {
   children: ReactNode;
 }): JSX.Element {
-  const [theme, setTheme] = useState<Theme>("dark");
+  return (
+    <NextThemesProvider attribute="class" defaultTheme="system" enableSystem>
+      <ThemeContextWrapper>{children}</ThemeContextWrapper>
+    </NextThemesProvider>
+  );
+}
 
+function ThemeContextWrapper({
+  children,
+}: {
+  children: ReactNode;
+}): JSX.Element {
+  const { setTheme, resolvedTheme } = useNextTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Avoid hydration mismatch by only rendering theme-dependent UI after mounting
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const savedTheme = localStorage.getItem("theme") as Theme;
-      if (savedTheme) {
-        setTheme(savedTheme);
-        if (savedTheme === "light") {
-          document.documentElement.classList.remove("dark");
-        } else {
-          document.documentElement.classList.add("dark");
-        }
-      } else {
-        // Default to dark mode
-        setTheme("dark");
-        document.documentElement.classList.add("dark");
-      }
-    }
+    setMounted(true);
   }, []);
 
   const toggleTheme = (): void => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    if (typeof window !== "undefined") {
-      localStorage.setItem("theme", newTheme);
-      if (newTheme === "light") {
-        document.documentElement.classList.remove("dark");
-      } else {
-        document.documentElement.classList.add("dark");
-      }
-    }
+    setTheme(resolvedTheme === "light" ? "dark" : "light");
   };
 
+  const currentTheme = (mounted ? resolvedTheme : "dark") as Theme;
+
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider
+      value={{ theme: currentTheme, toggleTheme, mounted }}
+    >
       {children}
     </ThemeContext.Provider>
   );

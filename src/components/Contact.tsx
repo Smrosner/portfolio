@@ -1,9 +1,14 @@
+"use client";
+
+import { useState, type JSX } from "react";
+
 import { theme } from "@/styles/theme";
 
 const contactLinks = [
   {
     label: "Email",
     href: "mailto:shaymrosner@gmail.com",
+    email: "shaymrosner@gmail.com",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -57,6 +62,39 @@ const contactLinks = [
 ];
 
 export default function Contact(): JSX.Element {
+  const [copied, setCopied] = useState(false);
+
+  const handleEmailClick = async (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    email: string,
+  ): Promise<void> => {
+    e.preventDefault();
+
+    try {
+      // Primary method: Clipboard API
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(email);
+      } else {
+        // Fallback method: execCommand
+        const textArea = document.createElement("textarea");
+        textArea.value = email;
+        textArea.style.position = "fixed";
+        textArea.style.left = "-9999px";
+        textArea.style.top = "0";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textArea);
+      }
+
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy email: ", err);
+    }
+  };
+
   return (
     <section id="connect">
       <h2
@@ -74,10 +112,29 @@ export default function Contact(): JSX.Element {
             rel={
               link.href.startsWith("http") ? "noopener noreferrer" : undefined
             }
-            className={`${theme.components.pill} ${theme.effects.hover}`}
+            onClick={
+              link.email
+                ? (e): Promise<void> =>
+                    handleEmailClick(e, link.email as string)
+                : undefined
+            }
+            className={`${theme.components.pill} ${
+              theme.effects.hover
+            } relative overflow-hidden transition-all duration-300 ${
+              link.label === "Email" && copied
+                ? "bg-cyan-500/10 border-cyan-500/50 text-cyan-700 dark:text-cyan-300"
+                : ""
+            }`}
           >
             <span className={theme.components.pillIcon}>{link.icon}</span>
-            <span>{link.label}</span>
+            <span>
+              {link.label === "Email" && copied ? "Copied!" : link.label}
+            </span>
+
+            {/* Animated progress bar for the "Copied!" state */}
+            {link.label === "Email" && copied && (
+              <div className="absolute bottom-0 left-0 h-0.5 bg-cyan-500 animate-shrink" />
+            )}
           </a>
         ))}
       </div>

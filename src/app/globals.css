@@ -46,4 +46,17 @@
     -webkit-line-clamp: 2;
     line-clamp: 2;
   }
+
+  .animate-shrink {
+    animation: shrink 2s linear forwards;
+  }
+
+  @keyframes shrink {
+    from {
+      width: 100%;
+    }
+    to {
+      width: 0%;
+    }
+  }
 }
