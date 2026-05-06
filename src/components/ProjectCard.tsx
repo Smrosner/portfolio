@@ -4,6 +4,7 @@ import { type JSX } from "react";
 
 import type { Project } from "../../data/projectsData";
 
+import { metricPillClass } from "@/styles/pills";
 import { theme } from "@/styles/theme";
 
 interface ProjectCardProps {
@@ -29,7 +30,7 @@ export default function ProjectCard({ project }: ProjectCardProps): JSX.Element 
             {project.metrics.slice(0, 2).map((metric) => (
               <span
                 key={`${project.slug}-${metric.label}`}
-                className="rounded-md bg-cyan-100 px-2.5 py-1 text-xs font-semibold text-cyan-900 ring-1 ring-cyan-200 dark:bg-cyan-400/10 dark:text-cyan-100 dark:ring-cyan-400/25"
+                className={metricPillClass}
               >
                 {metric.value} {metric.label}
               </span>

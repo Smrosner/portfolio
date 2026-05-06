@@ -39,8 +39,12 @@ export default function ProjectsFilter({
               onClick={() => setActiveCategory(category.id)}
               variant="ghost"
               isActive={isActive}
-              activeClassName="bg-cyan-600 text-white ring-1 ring-cyan-500 dark:bg-cyan-400 dark:text-zinc-950"
-              className="px-4 py-2"
+              activeClassName="rounded-none bg-cyan-600 text-white ring-1 ring-cyan-500 dark:bg-cyan-400 dark:text-zinc-950"
+              className={
+                isActive
+                  ? "rounded-none px-4 py-2"
+                  : "rounded-none px-4 py-2 hover:bg-zinc-200 hover:text-cyan-900 dark:hover:bg-zinc-800 dark:hover:text-cyan-100"
+              }
             >
               {category.label}
             </Button>

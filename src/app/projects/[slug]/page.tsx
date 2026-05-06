@@ -6,6 +6,7 @@ import { type JSX } from "react";
 
 import { getProjectBySlug, projects } from "../../../../data/projectsData";
 
+import { metricPillClass } from "@/styles/pills";
 import { theme } from "@/styles/theme";
 
 interface ProjectPageProps {
@@ -100,7 +101,7 @@ export default function ProjectPage({ params }: ProjectPageProps): JSX.Element {
                 {project.stack.map((tech) => (
                   <span
                     key={tech}
-                    className="rounded-md bg-zinc-100 px-2.5 py-1 text-sm text-zinc-700 ring-1 ring-zinc-200 dark:bg-zinc-950/70 dark:text-zinc-300 dark:ring-zinc-800"
+                    className={metricPillClass}
                   >
                     {tech}
                   </span>

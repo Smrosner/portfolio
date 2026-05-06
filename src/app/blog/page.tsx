@@ -12,6 +12,10 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage(): JSX.Element {
+  const visibleBackendLearningNotes = backendLearningNotes.filter(
+    (post) => post.status !== "Draft",
+  );
+
   return (
     <main className={`min-h-screen ${theme.gradients.primary}`}>
       <div className="mx-auto max-w-7xl px-6 py-28 lg:px-8 md:py-32">
@@ -37,17 +41,17 @@ export default function BlogPage(): JSX.Element {
           <BlogPostsSection posts={featuredBlogPosts} />
         </section>
 
-        <section>
-          <div className="mb-8">
-            <h2 className={theme.typography.h2}>Backend Learning Notes</h2>
-            <p className={theme.typography.body}>
-              Draft-style notes from a focused backend growth track. They are
-              intentionally labeled as learning artifacts rather than polished
-              articles.
-            </p>
-          </div>
-          <BlogPostsSection posts={backendLearningNotes.slice(0, 12)} />
-        </section>
+        {visibleBackendLearningNotes.length > 0 && (
+          <section>
+            <div className="mb-8">
+              <h2 className={theme.typography.h2}>Backend Learning Notes</h2>
+              <p className={theme.typography.body}>
+                Public notes from a focused backend growth track.
+              </p>
+            </div>
+            <BlogPostsSection posts={visibleBackendLearningNotes.slice(0, 12)} />
+          </section>
+        )}
       </div>
     </main>
   );

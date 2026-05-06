@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JSX } from "react";
 
@@ -34,17 +33,17 @@ export default function BlogPostPage({ params }: BlogPostPageProps): JSX.Element
             aria-label="Breadcrumb"
             className={`${theme.colors.text.muted} text-sm mb-6`}
           >
-            <Link
+            <a
               href="/blog"
-              className="hover:text-cyan-700 dark:hover:text-cyan-300 transition-colors"
+              className="rounded-md transition-colors hover:text-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-500/80 dark:hover:text-cyan-300"
             >
               Blog
-            </Link>
+            </a>
             <span className="mx-2">/</span>
             <span className={theme.colors.text.secondary}>{post.title}</span>
           </nav>
           <h1 className={theme.typography.h1}>{post.title}</h1>
-          <p className={`${theme.colors.text.muted} text-sm mb-6`}>
+          <p className="text-sm mb-6 text-cyan-900 dark:text-cyan-200">
             {post.publishDate} · {post.readTime} · {getBlogPostMetric(post)}
           </p>
 
@@ -52,9 +51,18 @@ export default function BlogPostPage({ params }: BlogPostPageProps): JSX.Element
 
           <div className="space-y-5">
             {post.content.map((paragraph) => (
-              <p key={paragraph} className={theme.typography.body}>
-                {paragraph}
-              </p>
+              paragraph.startsWith("## ") ? (
+                <h2
+                  key={paragraph}
+                  className={`${theme.typography.h2} !mb-4 pt-5`}
+                >
+                  {paragraph.replace("## ", "")}
+                </h2>
+              ) : (
+                <p key={paragraph} className={theme.typography.body}>
+                  {paragraph}
+                </p>
+              )
             ))}
           </div>
 

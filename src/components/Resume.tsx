@@ -2,6 +2,7 @@ import { type JSX } from "react";
 
 import { DownloadIcon } from "@/components/shared/Icons";
 import Button from "@/components/ui/Button";
+import { metricPillClass } from "@/styles/pills";
 import { theme } from "@/styles/theme";
 
 const experiences = [
@@ -143,7 +144,7 @@ export default function Resume({ compact = false }: ResumeProps): JSX.Element {
             {skills.map((skill) => (
               <span
                 key={skill}
-                className="rounded-md bg-zinc-100 px-3 py-1.5 text-sm text-zinc-700 ring-1 ring-zinc-200 dark:bg-zinc-950/70 dark:text-zinc-300 dark:ring-zinc-800"
+                className={metricPillClass}
               >
                 {skill}
               </span>

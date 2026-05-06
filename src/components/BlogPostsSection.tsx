@@ -2,6 +2,7 @@ import Link from "next/link";
 import { JSX } from "react";
 
 import { BlogPost, getBlogPostMetric } from "@/app/blog/content";
+import { metricPillClass } from "@/styles/pills";
 import { theme } from "@/styles/theme";
 
 interface BlogPostsSectionProps {
@@ -18,9 +19,9 @@ export default function BlogPostsSection({
           <article
             className={`${theme.components.card} ${theme.gradients.card} ${theme.effects.hover} !px-6 !py-6 md:!px-8 md:!py-8 transition-all duration-100 ease-in-out hover:shadow-md hover:shadow-black/20 dark:hover:shadow-black/20`}
           >
-            <div className="flex flex-col gap-3 mb-4 md:flex-row md:items-center md:justify-between">
+            <div className="flex flex-col gap-3 mb-4 lg:flex-row lg:items-start lg:justify-between">
               <h2 className={`${theme.typography.h3} !mb-0`}>{post.title}</h2>
-              <span className="text-sm font-medium px-3 py-1 rounded-full text-cyan-900 dark:text-cyan-100 bg-cyan-200/80 dark:bg-cyan-500/22 ring-1 ring-cyan-500/45 dark:ring-cyan-400/50">
+              <span className={`${metricPillClass} w-fit max-w-full`}>
                 {getBlogPostMetric(post)}
               </span>
             </div>

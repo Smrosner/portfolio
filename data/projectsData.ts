@@ -40,7 +40,7 @@ export const projects: Project[] = [
     summary:
       "Reframed a server-backed preview tool into a static-export friendly case study that still communicates product thinking, SSRF risk awareness, and client-side UX craft.",
     category: "frontend",
-    featured: true,
+    featured: false,
     image: "/projects/linksync.svg",
     role: "Product-minded frontend engineer",
     period: "2026",
@@ -121,7 +121,7 @@ export const projects: Project[] = [
     summary:
       "Designed and delivered a real-time AI chat product with onboarding, authentication, encrypted data handling, and production operations.",
     category: "ai",
-    featured: false,
+    featured: true,
     image: "/projects/chelle.svg",
     role: "Software Engineer",
     period: "November 2023 - February 2024",
