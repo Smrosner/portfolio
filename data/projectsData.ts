@@ -87,33 +87,33 @@ export const projects: Project[] = [
     outcome:
       "Delivered a more maintainable full-stack surface with clearer implementation standards, stronger user workflows, and less cross-team rework.",
   },
-  {
-    slug: "bytebot-performance-money-safety",
-    title: "ByteBot Systems Work",
-    subtitle: "Performance, money-safe logic, and production resilience",
-    summary:
-      "Improved high-impact application paths by removing latency bottlenecks, hardening transaction flows, and raising test confidence.",
-    category: "backend",
-    featured: true,
-    image: "/projects/bytebot.svg",
-    role: "Software Engineer",
-    period: "May 2024 - Present",
-    stack: ["Next.js", "Node.js", "MongoDB", "Jest", "AWS", "Firebase"],
-    metrics: [
-      { label: "Latency reduction", value: "55%" },
-      { label: "Test coverage", value: "98%" },
-      { label: "Launch target", value: "10k+ users" },
-    ],
-    problem:
-      "Client systems needed better real-user performance, safer currency handling, and more reliable launch readiness under deadline pressure.",
-    approach: [
-      "Removed request waterfalls and parallelized independent fetches to improve load behavior under real traffic.",
-      "Refactored Node.js and MongoDB money flows to standardize currency handling and prevent rounding drift.",
-      "Strengthened production confidence with robust Jest coverage, secure transaction flows, and audit-ready traces.",
-    ],
-    outcome:
-      "Reduced page load latency by 55%, raised confidence before a 10k+ user launch, and made high-risk money paths more predictable.",
-  },
+  // {
+  //   slug: "bytebot-performance-money-safety",
+  //   title: "ByteBot Systems Work",
+  //   subtitle: "Performance, money-safe logic, and production resilience",
+  //   summary:
+  //     "Improved high-impact application paths by removing latency bottlenecks, hardening transaction flows, and raising test confidence.",
+  //   category: "backend",
+  //   featured: true,
+  //   image: "/projects/bytebot.svg",
+  //   role: "Software Engineer",
+  //   period: "May 2024 - Present",
+  //   stack: ["Next.js", "Node.js", "MongoDB", "Jest", "AWS", "Firebase"],
+  //   metrics: [
+  //     { label: "Latency reduction", value: "55%" },
+  //     { label: "Test coverage", value: "98%" },
+  //     { label: "Launch target", value: "10k+ users" },
+  //   ],
+  //   problem:
+  //     "Client systems needed better real-user performance, safer currency handling, and more reliable launch readiness under deadline pressure.",
+  //   approach: [
+  //     "Removed request waterfalls and parallelized independent fetches to improve load behavior under real traffic.",
+  //     "Refactored Node.js and MongoDB money flows to standardize currency handling and prevent rounding drift.",
+  //     "Strengthened production confidence with robust Jest coverage, secure transaction flows, and audit-ready traces.",
+  //   ],
+  //   outcome:
+  //     "Reduced page load latency by 55%, raised confidence before a 10k+ user launch, and made high-risk money paths more predictable.",
+  // },
   {
     slug: "chelle-ai-chat-platform",
     title: "Chelle.ai Chat Platform",
@@ -197,15 +197,17 @@ export const projects: Project[] = [
   },
 ];
 
-export const projectCategories: { id: "all" | ProjectCategory; label: string }[] =
-  [
-    { id: "all", label: "All" },
-    { id: "full-stack", label: "Full-stack" },
-    { id: "frontend", label: "Frontend" },
-    { id: "backend", label: "Backend" },
-    { id: "ai", label: "AI" },
-    { id: "education", label: "Education" },
-  ];
+export const projectCategories: {
+  id: "all" | ProjectCategory;
+  label: string;
+}[] = [
+  { id: "all", label: "All" },
+  { id: "full-stack", label: "Full-stack" },
+  { id: "frontend", label: "Frontend" },
+  { id: "backend", label: "Backend" },
+  { id: "ai", label: "AI" },
+  { id: "education", label: "Education" },
+];
 
 export function getFeaturedProjects(): Project[] {
   return projects.filter((project) => project.featured);
