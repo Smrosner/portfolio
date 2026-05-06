@@ -51,13 +51,6 @@ export default function About({ showHeading = true }: AboutProps): JSX.Element {
             they&apos;re in production.
           </p>
           <p className={theme.typography.body}>
-            I build mostly with React, Next.js, TypeScript, Node.js, APIs,
-            auth, payments, AI tools, and backend systems, with growing
-            experience in C#/.NET. My work has included education platforms, AI
-            chat products, dashboards, payment portals, link-preview tooling,
-            and money-sensitive backend flows.
-          </p>
-          <p className={theme.typography.body}>
             I&apos;m detail-oriented in a practical way. I care about schema
             consistency, client/server boundaries, accessibility, testing,
             performance, security, and production diagnosis because those are
@@ -83,11 +76,8 @@ export default function About({ showHeading = true }: AboutProps): JSX.Element {
             Some of my best work happens in the messy middle of a project, when
             the technical path is unclear, and people need someone to turn
             complexity into a clear explanation, a reasonable plan, and a
-            shippable next step.
-          </p>
-          <p className={theme.typography.body}>
-            At the end of the day, I like building useful software with people
-            who care about doing the work well.
+            shippable next step. At the end of the day, I like building useful
+            software with people who care about doing the work well.
           </p>
         </div>
       </div>

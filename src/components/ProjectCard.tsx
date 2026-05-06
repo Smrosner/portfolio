@@ -14,7 +14,7 @@ interface ProjectCardProps {
 export default function ProjectCard({ project }: ProjectCardProps): JSX.Element {
   return (
     <article
-      className={`${theme.components.card} ${theme.gradients.card} ${theme.effects.hover} ${theme.effects.glow} overflow-hidden !p-0`}
+      className={`${theme.components.card} ${theme.gradients.card} ${theme.effects.hover} overflow-hidden !p-0 transition-all duration-100 ease-in-out hover:shadow-md hover:shadow-black/20 dark:hover:shadow-black/20`}
     >
       <Link href={`/projects/${project.slug}`} className="block">
         <Image
